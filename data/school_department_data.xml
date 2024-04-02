@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!--        demo data for department name-->
+        <record id="department_cs_demo" model="school.department">
+            <field name="name">CS</field>
+            <field name="hod_id" ref="adarsh_partner"/>
+        </record>
+        <record id="department_it_demo" model="school.department">
+            <field name="name">IT</field>
+            <field name="hod_id" ref="adil_partner"/>
+        </record>
+        <record id="department_eee_demo" model="school.department">
+            <field name="name">EEE</field>
+            <field name="hod_id" ref="archa_partner"/>
+        </record>
+        <record id="department_civil_demo" model="school.department">
+            <field name="name">CIVIL</field>
+            <field name="hod_id" ref="meenu_partner"/>
+        </record>
+</odoo>

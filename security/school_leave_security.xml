@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="school_rule_leave_visibility_student" model="ir.rule">
+        <field name="name">student can see and create leave</field>
+        <field name="model_id" ref="school_management.model_school_leave"/>
+        <field name="groups" eval="[Command.link(ref('school_student'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[('student_id.name', '=', user.partner_id.name)] </field>
+    </record>
+    <record id="school_rule_leave_visibility_teacher" model="ir.rule">
+        <field name="name">teacher can see and create leave</field>
+        <field name="model_id" ref="school_management.model_school_leave"/>
+        <field name="groups" eval="[Command.link(ref('school_teacher'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    <record id="school_rule_leave_visibility_staff" model="ir.rule">
+        <field name="name">staff can see and create leave</field>
+        <field name="model_id" ref="school_management.model_school_leave"/>
+        <field name="groups" eval="[Command.link(ref('school_staff'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>

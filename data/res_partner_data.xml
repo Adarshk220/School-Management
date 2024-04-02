@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="adarsh_partner" model="res.partner">
+            <field name="name">Adarsh</field>
+            <field name="email">adarsh@gmail.com</field>
+        </record>
+        <record id="adil_partner" model="res.partner">
+            <field name="name">Adil</field>
+            <field name="email">adil@gmail.com</field>
+        </record>
+        <record id="archa_partner" model="res.partner">
+            <field name="name">Archa</field>
+            <field name="email">archa@gmail.com</field>
+        </record>
+        <record id="meenu_partner" model="res.partner">
+            <field name="name">Meenu</field>
+            <field name="email">meenu@gmail.com</field>
+        </record>
+</odoo>

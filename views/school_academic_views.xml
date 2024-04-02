@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="school_academic_view_tree" model="ir.ui.view">
+        <field name="name">school.academic.year.tree</field>
+        <field name="model">school.academic.year</field>
+        <field name="arch" type="xml">
+            <tree string="academic" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_academic_year_action" model="ir.actions.act_window">
+        <field name="name">Manage Academic Year</field>
+        <field name="res_model">school.academic.year</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="menu_configuration_master" name="Configuration" sequence="10">
+            <menuitem id="menu_configuration_academic_year" action="school_academic_year_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

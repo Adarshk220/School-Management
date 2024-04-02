@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="student_event_view_form" model="ir.ui.view">
+        <field name="name">school.event.form</field>
+        <field name="model">school.event</field>
+        <field name="arch" type="xml">
+            <form string="event">
+                <header>
+                    <button name="action_registration" class="oe_highlight" status="draft" string="Register"
+                            type="object" help="Click here to register the event"
+                            invisible="status in ['registration']"/>
+                    <button name="action_cancelled" class="oe_highlight" status="draft" string="Cancel"
+                            type="object" help="Click here to cancel the event" invisible="status in ['cancelled']"/>
+                    <field name="status" widget="statusbar" options="{'clickable':'1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="venue"/>
+                        </group>
+                        <group>
+                            <field name="clubs_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_event_view_tree" model="ir.ui.view">
+        <field name="name">school.event.tree</field>
+        <field name="model">school.event</field>
+        <field name="arch" type="xml">
+            <tree string="event">
+                <field name="name"/>
+                <field name="venue"/>
+                <field name="description"/>
+                <field name="clubs_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_school_event_search" model="ir.ui.view">
+        <field name="name">school.event.search</field>
+        <field name="model">school.event</field>
+        <field name="arch" type="xml">
+            <search string="event">
+                <filter string="Archived" name="active" domain="[('active', '!=', 'True')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="school_event_action" model="ir.actions.act_window">
+        <field name="name">Manage Events</field>
+        <field name="res_model">school.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="event_master" name="Event" sequence="5" action="school_event_action"/>
+    </menuitem>
+</odoo>

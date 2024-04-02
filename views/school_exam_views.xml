@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="student_exam_view_form" model="ir.ui.view">
+        <field name="name">school.exam.form</field>
+        <field name="model">school.exam</field>
+        <field name="arch" type="xml">
+            <form string="Exam">
+                <header>
+                    <button name="button_exam_registration" class="oe_highlight" status="draft" string="Register For Exam"
+                            type="object" help="Click here to register the student" invisible="status in ['registration']"/>
+                    <field name="status" widget="statusbar" options="{'clickable':'1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="student_exam_class_id"/>
+                        </group>
+                        <field name="student_exam_ids">
+                            <tree editable="bottom">
+                                <field name="subject_name_id"/>
+                                <field name="pass_mark"/>
+                                <field name="max_mark"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_exam_view_tree" model="ir.ui.view">
+        <field name="name">school.exam.tree</field>
+        <field name="model">school.exam</field>
+        <field name="arch" type="xml">
+            <tree string="exam">
+                <field name="name"/>
+                <field name="student_exam_class_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_exam_action" model="ir.actions.act_window">
+        <field name="name">Exams</field>
+        <field name="res_model">school.exam</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="menu_exam_master" action="school_exam_action" sequence="6"/>
+    </menuitem>
+</odoo>

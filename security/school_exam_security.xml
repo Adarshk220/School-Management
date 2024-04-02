@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="school_rule_exam_visibility_student" model="ir.rule">
+        <field name="name">student can only see his / her exam details</field>
+        <field name="model_id" ref="school_management.model_school_exam"/>
+        <field name="groups" eval="[Command.link(ref('school_student'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[('student_exam_class_id.student_ids.name', '=', user.partner_id.name)] </field>
+    </record>
+
+    <record id="school_rule_exam_visibility_teacher" model="ir.rule">
+        <field name="name">teacher can see all student's exam details</field>
+        <field name="model_id" ref="school_management.model_school_exam"/>
+        <field name="groups" eval="[Command.link(ref('school_teacher'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="school_rule_exam_visibility_staff" model="ir.rule">
+        <field name="name">staff can see all student's exam details</field>
+        <field name="model_id" ref="school_management.model_school_exam"/>
+        <field name="groups" eval="[Command.link(ref('school_staff'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>

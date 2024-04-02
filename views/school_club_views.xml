@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="student_club_view_form" model="ir.ui.view">
+        <field name="name">school.club.form</field>
+        <field name="model">school.club</field>
+        <field name="arch" type="xml">
+            <form string="clubs">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="get_events"
+                                icon="fa-calendar" string="Events">
+                            <field string="Event" name="event_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="student_ids"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_club_action" model="ir.actions.act_window">
+        <field name="name">Manage Clubs</field>
+        <field name="res_model">school.club</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="menu_configuration_master" name="Configuration" sequence="10" groups="school_staff">
+            <menuitem id="menu_configuration_club" action="school_club_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="create_user_automations" model="base.automation">
+            <field name="name">User creation Automation</field>
+            <field name="model_id" ref="model_school_student"/>
+            <field name="trigger">on_create</field>
+            <field name="action_server_ids" eval="[Command.link(ref('school_management.create_user_server_action'))]"/>
+        </record>
+    </data>
+</odoo>

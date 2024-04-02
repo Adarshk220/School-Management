@@ -1,0 +1,30 @@
+<odoo>
+    <record model="ir.cron" id="check_event_cron">
+        <field name="name">Check Event</field>
+        <field name="model_id" ref="model_school_event"/>
+        <field name="state">code</field>
+        <field name="code">model.check_event()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+    <record model="ir.cron" id="send_email_cron">
+        <field name="name">Send Reminder Email</field>
+        <field name="model_id" ref="model_school_event"/>
+        <field name="state">code</field>
+        <field name="code">model.event_reminder_email()</field>
+<!--        <field name="nextcall" eval="(DateTime.now() + timedelta(days=-2)).strftime('%Y-%m-%d')"/>-->
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+
+    <record model="ir.cron" id="check_attendance_cron">
+        <field name="name">Check Attendance</field>
+        <field name="model_id" ref="model_school_leave"/>
+        <field name="state">code</field>
+        <field name="code">model.check_attendance()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

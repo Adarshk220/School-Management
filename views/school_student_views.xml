@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="student_registration_view_form" model="ir.ui.view">
+        <field name="name">school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form string="registration">
+                <header>
+                    <button name="button_registration" class="oe_highlight" status="draft" string="Register"
+                            type="object" help="Click here to register the student"
+                            invisible="status in ['registration']"/>
+                    <field name="status" widget="statusbar" options="{'clickable':'1'}"/>
+                </header>
+                <sheet>
+                    <h1 style="font-size:50px;">
+                        <field name="sequence"/>
+                        <field name="photo" widget="image" class="oe_right oe_avatar"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="last_name"/>
+                            <field name="father_name"/>
+                            <field name="mother_name"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <notebook>
+                            <page string="Other Info">
+                                <group>
+                                    <field name="attendance"/>
+                                    <field name="company_id"/>
+                                    <field name="student_class_id"/>
+                                    <field name="registration_date"/>
+                                    <field name="previous_dep"/>
+                                    <field name="previous_class"/>
+                                    <field name="aadhaar"/>
+                                    <field name="tc_id" widget="pdf_viewer,image"/>
+                                </group>
+                            </page>
+                            <page string="Contacts And Addresses">
+                                <group>
+                                    <field name="phone" widget="phone"/>
+                                    <field name="communication_add"/>
+                                    <field name="same"/>
+                                    <field name="permanent_add" invisible="same != False"/>
+                                </group>
+                            </page>
+                            <page string="Clubs">
+                                <field name="club_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Exams">
+                                <field name="exam_paper_ids">
+                                    <tree create="0">
+                                        <field name="subject_name_id"/>
+                                        <field name="pass_mark"/>
+                                        <field name="max_mark"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_students_view_tree" model="ir.ui.view">
+        <field name="name">school.student.tree</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <tree string="students" decoration-danger="attendance == False"
+            decoration-success="attendance == True">
+                <field name="sequence"/>
+                <field name="name" string="Name"/>
+                <field name="attendance"/>
+                <field name="student_class_id"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="aadhaar"/>
+                <field name="gender"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_student_registration_action" model="ir.actions.act_window">
+        <field name="name">Student Registration</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="Students_master" name="Students" sequence="3">
+            <menuitem id="menu_students_registration" action="school_student_registration_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

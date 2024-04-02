@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="student_leave_view_form" model="ir.ui.view">
+        <field name="name">school.leave.form</field>
+        <field name="model">school.leave</field>
+        <field name="arch" type="xml">
+            <form string="leave">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="student_class"/>
+                            <field name="half_day"/>
+                        </group>
+                        <group>
+                            <field name="start_date" invisible="half_day != False"/>
+                            <field name="end_date" invisible="half_day != False"/>
+                            <field name="total_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Leave Reason">
+                            <group>
+                                <field name="reason"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_leave_view_tree" model="ir.ui.view">
+        <field name="name">school.leave.tree</field>
+        <field name="model">school.leave</field>
+        <field name="arch" type="xml">
+            <tree string="leave">
+                <field name="student_id"/>
+                <field name="total_days"/>
+                <field name="reason"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_leave_action" model="ir.actions.act_window">
+        <field name="name">Leaves</field>
+        <field name="res_model">school.leave</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="menu_leave_master" action="school_leave_action" sequence="7"/>
+    </menuitem>
+</odoo>

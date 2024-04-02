@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!--        demo data for subject-->
+        <record id="subject_dsa_demo" model="school.subject">
+            <field name="name">DSA</field>
+            <field name="department_id" ref="department_cs_demo"/>
+        </record>
+        <record id="subject_iot_demo" model="school.subject">
+            <field name="name">IOT</field>
+            <field name="department_id" ref="department_it_demo"/>
+        </record>
+        <record id="subject_physics_demo" model="school.subject">
+            <field name="name">Physics</field>
+            <field name="department_id" ref="department_eee_demo"/>
+        </record>
+        <record id="subject_maths_demo" model="school.subject">
+            <field name="name">Maths</field>
+            <field name="department_id" ref="department_civil_demo"/>
+        </record>
+</odoo>

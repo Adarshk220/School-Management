@@ -1,0 +1,31 @@
+<odoo>
+    <record id="company_access_for_school_student" model="ir.rule">
+        <field name="name">Company school record access</field>
+        <field name="model_id" ref="school_management.model_school_student"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="company_access_for_school_event" model="ir.rule">
+        <field name="name">Company event record access</field>
+        <field name="model_id" ref="school_management.model_school_event"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="company_access_for_school_exam" model="ir.rule">
+        <field name="name">Company exam record access</field>
+        <field name="model_id" ref="school_management.model_school_exam"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="company_access_for_school_leave" model="ir.rule">
+        <field name="name">Company leave record access</field>
+        <field name="model_id" ref="school_management.model_school_leave"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="company_access_for_school_club" model="ir.rule">
+        <field name="name">Company club record access</field>
+        <field name="model_id" ref="school_management.model_school_club"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

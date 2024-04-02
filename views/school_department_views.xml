@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="student_department_view_form" model="ir.ui.view">
+        <field name="name">school.department.form</field>
+        <field name="model">school.department</field>
+        <field name="arch" type="xml">
+            <form string="department">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="hod_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_department_action" model="ir.actions.act_window">
+        <field name="name">Manage Department</field>
+        <field name="res_model">school.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_root" name="School Management">
+        <menuitem id="menu_configuration_master" name="Configuration" sequence="10">
+            <menuitem id="menu_configuration_department" action="school_department_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

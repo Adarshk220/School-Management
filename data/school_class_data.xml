@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!--        demo data for class-->
+        <record id="class_one_demo" model="school.class">
+            <field name="name">one</field>
+            <field name="department_id" ref="department_cs_demo"/>
+        </record>
+        <record id="class_two_demo" model="school.class">
+            <field name="name">two</field>
+            <field name="department_id" ref="department_it_demo"/>
+        </record>
+        <record id="class_three_demo" model="school.class">
+            <field name="name">three</field>
+            <field name="department_id" ref="department_eee_demo"/>
+        </record>
+        <record id="class_four_demo" model="school.class">
+            <field name="name">four</field>
+            <field name="department_id" ref="department_civil_demo"/>
+        </record>
+</odoo>

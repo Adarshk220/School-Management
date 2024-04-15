@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_club">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2 align="center">Club Report</h2>
+                    <t t-if="club">
+                        <h4 align="center">
+                            <span t-esc="club"/>
+                        </h4>
+                    </t>
+                    <t t-if="count == 1">
+                        <h4 align="center">
+                            <span t-esc="data_students[0].get('student')"/>
+                        </h4>
+                    </t>
+                    <br/>
+                    <br/>
+                    <t t-if="club and student">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <t t-if="count > 1">
+                                        <th>Student</th>
+                                    </t>
+                                    <th>Event</th>
+                                    <th>Club</th>
+                                    <th>Venue</th>
+                                    <th>Start Date</th>
+                                    <th>End date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="result_events" t-as="row" align="center">
+                                    <t t-if="count > 1">
+                                        <td>
+                                            <span t-esc="row.get('student')"/>
+                                        </td>
+                                    </t>
+                                    <td>
+                                        <span t-esc="row.get('event')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('club')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('venue')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('start_date')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('end_date')"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <t t-elif="club">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Event</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="data" t-as="row" align="center">
+                                    <td>
+                                        <span t-esc="row.get('student')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('event')"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <t t-elif="student">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Club</th>
+                                    <t t-if="count > 1">
+                                        <th>Student</th>
+                                    </t>
+                                    <th>Event</th>
+                                    <th>Phone</th>
+                                    <th>Gender</th>
+                                    <th>DOB</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="data_students" t-as="row" align="center">
+                                    <td>
+                                        <span t-esc="row.get('club')"/>
+                                    </td>
+                                    <t t-if="count > 1">
+                                        <td>
+                                            <span t-esc="row.get('student')"/>
+                                        </td>
+                                    </t>
+                                    <td>
+                                        <span t-esc="row.get('phone')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('gender')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('dob')"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <t t-else="club and student">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Club</th>
+                                    <th>Student</th>
+                                    <th>Event</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="data" t-as="row" align="center">
+                                    <td>
+                                        <span t-esc="row.get('club')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('student')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="row.get('event')"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

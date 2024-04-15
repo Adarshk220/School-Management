@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_exam">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2 align="center">Exam Report</h2><br/><br/>
+                    <table class="table">
+                        <tr>
+                            <th>Exam</th>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Subject</th>
+                        </tr>
+                        <tr t-foreach="data" t-as="row" align="center">
+                            <td>
+                                <span t-esc="row.get('name')"/>
+                            </td>
+                            <td>
+                                <span t-esc="row.get('student')"/>
+                            </td>
+                            <td>
+                                <span t-esc="row.get('class')"/>
+                            </td>
+                            <td>
+                                <span t-esc="row.get('subject')"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

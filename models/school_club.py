@@ -10,7 +10,7 @@ class SchoolClubs(models.Model):
     _inherit = "mail.thread"
 
     name = fields.Char(required=True, string="Club")
-    student_ids = fields.Many2many("school.student", required=True, string="Students")
+    student_ids = fields.Many2many("school.student", required=True, string="Students", store=True)
     event_count = fields.Integer(compute='_compute_count')
     company_id = fields.Many2one("res.company", string="School", tracking=True,
                                  default=lambda self: self.env.company.id)

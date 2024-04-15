@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_leave_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">school.leave.report.wizard.form</field>
+        <field name="model">school.leave.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="school leave report wizard">
+                <group class="oe_title">
+                    <field name="date"/>
+                    <field name="custom_date" invisible="date in [('month'),('week'),('day')]"/>
+<!--                    <field name="custom_end_date" invisible="date in [('month'),('week'),('day')]"/>-->
+                    <field name="select"/>
+                    <field name="name" invisible="select == 'class'"/>
+                    <field name="class_id" invisible="select == 'student'"/>
+                </group>
+                <footer>
+                    <button name="action_leave_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary " special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="school_leave_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Leave Information</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.leave.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_leave_report_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_report_master" name="Report" sequence="9" parent="menu_school_root">
+        <menuitem id="menu_report_leave" action="school_leave_report_wizard_action" sequence="1"/>
+    </menuitem>
+</odoo>

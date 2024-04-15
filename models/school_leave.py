@@ -13,12 +13,12 @@ class SchoolStaff(models.Model):
     _rec_name = "student_id"
 
     student_id = fields.Many2one("school.student", string="Student", required=True)
-    student_class = fields.Many2one("school.class", string="Class")
+    student_class = fields.Many2one(related="student_id.student_class_id", string="Class")
     half_day = fields.Boolean(string="Half Day")
     start_date = fields.Date(default=fields.date.today(), string="Start Date")
     end_date = fields.Date(default=fields.date.today(), string="End Date")
     total_days = fields.Float(string="Total Days", compute="_compute_total_days")
-    reason = fields.Html(required=True)
+    reason = fields.Char(required=True)
     company_id = fields.Many2one("res.company", string="School", tracking=True,
                                  default=lambda self: self.env.company.id)
 

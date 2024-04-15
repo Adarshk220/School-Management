@@ -24,3 +24,8 @@ access_school_exam_staff,access.school.exam,model_school_exam,school_management.
 access_school_exam_paper_student,access.school.exam.paper,model_school_exam_paper,school_management.school_student,1,0,0,0
 access_school_exam_paper_teacher,access.school.exam.paper,model_school_exam_paper,school_management.school_teacher,1,1,1,0
 access_school_exam_paper_staff,access.school.exam.paper,model_school_exam_paper,school_management.school_staff,1,1,1,1
+access_school_leave_report_wizard,access.school.leave.report.wizard,model_school_leave_report_wizard,school_management.school_staff,1,1,1,1
+access_school_event_report_wizard,access.school.event.report.wizard,model_school_event_report_wizard,school_management.school_staff,1,1,1,1
+access_school_club_report_wizard,access.school.club.report.wizard,model_school_club_report_wizard,school_management.school_staff,1,1,1,1
+access_school_student_report_wizard,access.school.student.report.wizard,model_school_student_report_wizard,school_management.school_staff,1,1,1,1
+access_school_exam_report_wizard,access.school.exam.report.wizard,model_school_exam_report_wizard,school_management.school_staff,1,1,1,1

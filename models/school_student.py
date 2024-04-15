@@ -47,6 +47,7 @@ class SchoolStudent(models.Model):
     def create(self, vals):
         """sequence for the registered student"""
         # print(self.search([]))
+        print(self)
         if vals.get('sequence', _('New')) == _('New'):
             vals['sequence'] = self.env['ir.sequence'].next_by_code('school.student') or _('New')
         return super(SchoolStudent, self).create(vals)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_event">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2 align="center">Event Report</h2><br/><br/>
+                    <table class="table" border="1px">
+                        <tr>
+                            <th>Event name</th>
+                            <th>Club</th>
+                            <th>Starting date</th>
+                            <th>Ending date</th>
+                        </tr>
+                        <tr t-foreach="data" t-as="row" align="center">
+                            <td>
+                                <span t-esc="row.get('name')"/>
+                            </td>
+                            <td>
+                                <span t-esc="row.get('club')"/>
+                            </td>
+                            <td>
+                                <span t-esc="row.get('start_date')"/>
+                            </td>
+                            <td>
+                                <span t-esc="row.get('end_date')"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

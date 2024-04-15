@@ -1,0 +1,11 @@
+<odoo>
+    <record id="action_report_school_club" model="ir.actions.report">
+        <field name="name">Club Report</field>
+        <field name="model">school.club</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.report_club</field>
+        <field name="report_file">school_management.report_club</field>
+        <field name="binding_model_id" ref="school_management.model_school_club"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

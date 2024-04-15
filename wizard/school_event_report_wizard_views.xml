@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_event_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">school.event.report.wizard.form</field>
+        <field name="model">school.event.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="school event report wizard">
+                <group class="oe_title">
+                    <field name="date"/>
+                    <field name="custom_date" invisible="date in [('month'),('week'),('day')]"/>
+                    <field name="club_id"/>
+                </group>
+                <footer>
+                    <button name="action_event_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary " special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="school_event_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Event Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.event.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_event_report_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_report_master" name="Report" sequence="9" parent="menu_school_root">
+        <menuitem id="menu_report_event" action="school_event_report_wizard_action" sequence="2"/>
+    </menuitem>
+</odoo>

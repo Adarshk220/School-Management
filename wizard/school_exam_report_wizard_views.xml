@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_exam_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">school.exam.report.wizard.form</field>
+        <field name="model">school.exam.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="school exam report wizard">
+                <group class="oe_title">
+                    <field name="student_id"/>
+                    <field name="class_id"/>
+                </group>
+                <footer>
+                    <button name="action_exam_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary " special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="school_exam_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Exam Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.exam.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_exam_report_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_report_master" name="Report" sequence="9" parent="menu_school_root">
+        <menuitem id="menu_report_exam" action="school_exam_report_wizard_action" sequence="8"/>
+    </menuitem>
+</odoo>

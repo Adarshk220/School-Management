@@ -11,9 +11,10 @@ class SchoolClubReport(models.AbstractModel):
     def _get_report_values(self, docids, data=None):
         club = data.get('club')
         student = data.get('student')
+        print(student)
         student_name = []
-        for id in student:
-            name = self.env['school.student'].browse(id).name
+        for i in student:
+            name = self.env['school.student'].browse(i).name
             student_name.append(name)
         count = len(student_name)
         print("std ids", student)
@@ -42,19 +43,12 @@ class SchoolClubReport(models.AbstractModel):
                 else:
                     query_c += """where sc.name = '%s' and ss.id in %s  """ % (club, (str(tuple(student))))
             elif club:
-                print(club, "is maaclub")
                 query_a += """where school_club.name = '%s' """ % club
-                print(query_a, "babuuu")
             elif student:
-                # club = self.env['school.club'].search([('student_ids', 'in', student)]).mapped('id')
-                print(club)
                 if count == 1:
-                    print(student[0])
                     query_b += """where ss.id = '%s' """ % student[0]
                 else:
                     query_b += """where ss.id in %s """ % (str(tuple(student)))
-                    # query_b += """ WHERE ss.id IN %s AND sc.name = '%s' """ % (str(tuple(student)),
-                    print('myyyy', (str(tuple(student))))
         self.env.cr.execute(query_b)
         result_students = self.env.cr.dictfetchall()
         self.env.cr.execute(query_c)

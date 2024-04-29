@@ -12,15 +12,15 @@
                             <th>Class</th>
                             <th>Department</th>
                         </tr>
-                        <tr t-foreach="data" t-as="row" align="center">
+                        <tr t-foreach="data['report']" t-as="row" align="center">
                             <td>
-                                <span t-esc="row.get('student')"/>
+                                <span t-esc="row['student']"/>
                             </td>
                             <td>
-                                <span t-esc="row.get('class')"/>
+                                <span t-esc="row['class']"/>
                             </td>
                             <td>
-                                <span t-esc="row.get('department')"/>
+                                <span t-esc="row['department']"/>
                             </td>
                         </tr>
                     </table>

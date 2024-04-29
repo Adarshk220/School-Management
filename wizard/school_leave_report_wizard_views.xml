@@ -7,14 +7,15 @@
             <form string="school leave report wizard">
                 <group class="oe_title">
                     <field name="date"/>
-                    <field name="custom_date" invisible="date in [('month'),('week'),('day')]"/>
-<!--                    <field name="custom_end_date" invisible="date in [('month'),('week'),('day')]"/>-->
+                    <field name="custom_start_date" invisible="date in [('month'),('week'),('day')]"/>
+                    <field name="custom_end_date" invisible="date in [('month'),('week'),('day')]"/>
                     <field name="select"/>
-                    <field name="name" invisible="select == 'class'"/>
-                    <field name="class_id" invisible="select == 'student'"/>
+                    <field name="name" invisible="select == 'class'" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="class_id" invisible="select == 'student'" options="{'no_create': True, 'no_create_edit':True}"/>
                 </group>
                 <footer>
                     <button name="action_leave_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button name="action_leave_xlsx_report" type="object" string="Print Excel" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary " special="cancel"/>
                 </footer>
             </form>

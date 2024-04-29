@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="online_student_registration_form">
+        <t t-call="website.layout">
+            <div id="student">
+                <div class="container">
+                    <form id="request_form" method="post" action="/student_registration">
+                        <br/>
+                        <br/>
+                        <div class="s_website_form_rows row s_col_no_bgcolor">
+                            <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">First Name</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input type="text"
+                                               class="form-control s_website_form_input" name="name"
+                                               required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Last Name</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input type="text"
+                                               class="form-control s_website_form_input" name="last_name"
+                                               required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                            <div class="form-group col-12 s_website_form_field" data-type="char"
+                                 data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Phone Number</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input type="tel"
+                                               class="form-control s_website_form_input" name="phone"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                            <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                 data-type="char" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Email</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input id="email" type="email"
+                                               class="form-control s_website_form_input" name="email" required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+                                <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Class</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="class_id" t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="class" t-as="class">
+                                                    <option t-att-value="class.id">
+                                                        <t t-esc="class.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                 data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">DOB</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input type="date" id="dob" name="dob"
+                                               class="form-control s_website_form_input" required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                 data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Gender</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <select name="gender" id="gender_id"
+                                                class="form-control link-style">
+                                            <option>male</option>
+                                            <option>female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                 data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Communication Address</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <textarea class="form-control s_website_form_input"
+                                                  name="communication_add" required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                 data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Is same as Communication Address
+                                        </span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input type="checkbox" class="s_website_form_input form-check-input"
+                                               name="same" id="same"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                 data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor" id="permanent_add_id">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Permanent Address</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <textarea class="form-control s_website_form_input"
+                                                  name="permanent_add" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                <div style="width: 200px;" class="s_website_form_label"/>
+                                <input type="submit" class="btn btn-primary" value="submit" id="submit"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

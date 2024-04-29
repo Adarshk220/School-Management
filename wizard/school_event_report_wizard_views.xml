@@ -8,10 +8,11 @@
                 <group class="oe_title">
                     <field name="date"/>
                     <field name="custom_date" invisible="date in [('month'),('week'),('day')]"/>
-                    <field name="club_id"/>
+                    <field name="club_id" options="{'no_create': True, 'no_create_edit':True}"/>
                 </group>
                 <footer>
                     <button name="action_event_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button name="action_event_xlsx_report" string="Print Excel" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary " special="cancel"/>
                 </footer>
             </form>

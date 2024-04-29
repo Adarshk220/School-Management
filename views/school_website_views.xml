@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="website_student_menu" model="website.menu">
+        <field name="name">Student Registration</field>
+        <field name="url">/student_web_form</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">50</field>
+    </record>
+    <record id="website_leave_menu" model="website.menu">
+        <field name="name">Leave Registration</field>
+        <field name="url">/leave_web_form</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">53</field>
+    </record>
+    <record id="website_event_menu" model="website.menu">
+        <field name="name">Event Registration</field>
+        <field name="url">/event_web_form</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">56</field>
+    </record>
+</odoo>

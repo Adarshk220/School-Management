@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <form string="school student report wizard">
                 <group class="oe_title">
-                    <field name="class_id"/>
-                    <field name="department_id"/>
+                    <field name="class_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="department_id" options="{'no_create': True, 'no_create_edit':True}"/>
                 </group>
                 <footer>
                     <button name="action_student_report" string="Print PDF" type="object" class="btn-primary"/>

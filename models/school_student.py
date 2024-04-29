@@ -35,7 +35,7 @@ class SchoolStudent(models.Model):
     email = fields.Char(string="Email", required=True)
     company_id = fields.Many2one("res.company", string="School", tracking=True,
                                  default=lambda self: self.env.company.id)
-    age = fields.Integer(compute="_compute_age")
+    age = fields.Integer(compute="_compute_age", store=True)
     today = fields.Date(default=fields.date.today())
     club_ids = fields.Many2many("school.club", string="Clubs")
     student_class_id = fields.Many2one("school.class", string="Class")
@@ -58,7 +58,7 @@ class SchoolStudent(models.Model):
             'status': "registration"
         })
 
-    @api.depends("dob", "age")
+    @api.depends("dob")
     def _compute_age(self):
         """Age calculation based on DOB"""
         for record in self:

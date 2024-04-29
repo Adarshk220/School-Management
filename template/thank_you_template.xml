@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="thank_you_form">
+       <t t-call="website.layout">
+           <div id="wrap" class="oe_structure oe_empty">
+               <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                   <div class="container s_allow_columns">
+                       <br> </br> <br> </br> <br> </br>
+                        <div class="row">
+                            <div>
+                                <span class="d-block fa fa-5x fa fa-smile-o mx-auto rounded-circle bg-secondary"/><br/>
+                                <h1 class="text-center">Thank You!</h1>
+                                <div class="pb16 pt16 s_hr" data-snippet="s_hr" data-name="Separator">
+                                    <hr class="mx-auto border-top w-50 border-dark text-center"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </section>
+           </div>
+       </t>
+   </template>
+</odoo>

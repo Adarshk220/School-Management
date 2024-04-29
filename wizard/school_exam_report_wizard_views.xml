@@ -6,11 +6,12 @@
         <field name="arch" type="xml">
             <form string="school exam report wizard">
                 <group class="oe_title">
-                    <field name="student_id"/>
-                    <field name="class_id"/>
+                    <field name="student_id" options="{'no_create': True, 'no_create_edit':True.}"/>
+                    <field name="class_id" options="{'no_create': True, 'no_create_edit':True}"/>
                 </group>
                 <footer>
                     <button name="action_exam_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button name="action_exam_xlsx_report" string="Print Excel" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary " special="cancel"/>
                 </footer>
             </form>

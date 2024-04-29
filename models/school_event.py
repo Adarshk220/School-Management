@@ -12,6 +12,7 @@ class SchoolEvent(models.Model):
     _inherit = "mail.thread"
 
     name = fields.Char(required=True, string="Event Name")
+    photo = fields.Binary(store=True)
     venue = fields.Char(string="Venue")
     description = fields.Html()
     clubs_id = fields.Many2one("school.club", string="Club")

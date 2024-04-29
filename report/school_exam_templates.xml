@@ -13,18 +13,18 @@
                             <th>Class</th>
                             <th>Subject</th>
                         </tr>
-                        <tr t-foreach="data" t-as="row" align="center">
+                        <tr t-foreach="data['report']" t-as="row" align="center">
                             <td>
-                                <span t-esc="row.get('name')"/>
+                                <span t-esc="row['name']"/>
                             </td>
                             <td>
-                                <span t-esc="row.get('student')"/>
+                                <span t-esc="row['student']"/>
                             </td>
                             <td>
-                                <span t-esc="row.get('class')"/>
+                                <span t-esc="row['class']"/>
                             </td>
                             <td>
-                                <span t-esc="row.get('subject')"/>
+                                <span t-esc="row['subject']"/>
                             </td>
                         </tr>
                     </table>

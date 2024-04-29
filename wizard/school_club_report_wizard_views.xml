@@ -6,11 +6,12 @@
         <field name="arch" type="xml">
             <form string="school club report wizard">
                 <group class="oe_title">
-                    <field name="club_id"/>
-                    <field name="student_ids" widget="many2many_tags"/>
+                    <field name="club_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="student_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}"/>
                 </group>
                 <footer>
                     <button name="action_club_report" string="Print PDF" type="object" class="btn-primary"/>
+                    <button name="action_club_xlsx_report" string="Print Excel" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary " special="cancel"/>
                 </footer>
             </form>
